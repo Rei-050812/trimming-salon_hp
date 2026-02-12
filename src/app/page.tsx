@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import FAQ from "@/components/FAQ";
 import FadeIn from "@/components/FadeIn";
 
@@ -47,14 +46,11 @@ export default function Home() {
       <section className="relative overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <Image
-            src="/hero.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/trimming-salon_hp/hero.png"
             alt="トリミングサロンでブラッシングを受けるトイプードル"
-            fill
-            sizes="100vw"
-            className="object-cover object-center"
-            priority
-
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30 md:from-white/85 md:via-white/60 md:to-transparent" />
         </div>
@@ -197,13 +193,13 @@ export default function Home() {
             <div className="bg-white rounded-2xl border border-warm-border p-6 md:p-10 shadow-sm">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shrink-0">
-                  <Image
-                    src="/trimmer.png"
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/trimming-salon_hp/trimmer.png"
                     alt="オーナートリマー 田邉凜々花"
                     width={192}
                     height={192}
                     className="w-full h-full object-cover object-top"
-        
                   />
                 </div>
                 <div>
