@@ -15,21 +15,21 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-text-sub">
-          <Link href="/#features" className="hover:text-primary transition-colors">
+          <a href="#features" className="hover:text-primary transition-colors">
             サロンの特徴
-          </Link>
-          <Link href="/#pricing" className="hover:text-primary transition-colors">
+          </a>
+          <a href="#pricing" className="hover:text-primary transition-colors">
             料金
-          </Link>
-          <Link href="/#trimmer" className="hover:text-primary transition-colors">
+          </a>
+          <a href="#trimmer" className="hover:text-primary transition-colors">
             トリマー紹介
-          </Link>
-          <Link href="/#shop" className="hover:text-primary transition-colors">
+          </a>
+          <a href="#shop" className="hover:text-primary transition-colors">
             店舗情報
-          </Link>
-          <Link href="/#faq" className="hover:text-primary transition-colors">
+          </a>
+          <a href="#faq" className="hover:text-primary transition-colors">
             よくある質問
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-primary-light transition-colors"
@@ -72,41 +72,41 @@ export default function Header() {
       {/* Mobile nav */}
       {isOpen && (
         <nav className="md:hidden bg-white border-t border-warm-border px-4 py-4 space-y-3 text-sm font-medium text-text-sub">
-          <Link
-            href="/#features"
+          <a
+            href="#features"
             className="block py-1 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             サロンの特徴
-          </Link>
-          <Link
-            href="/#pricing"
+          </a>
+          <a
+            href="#pricing"
             className="block py-1 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             料金
-          </Link>
-          <Link
-            href="/#trimmer"
+          </a>
+          <a
+            href="#trimmer"
             className="block py-1 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             トリマー紹介
-          </Link>
-          <Link
-            href="/#shop"
+          </a>
+          <a
+            href="#shop"
             className="block py-1 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             店舗情報
-          </Link>
-          <Link
-            href="/#faq"
+          </a>
+          <a
+            href="#faq"
             className="block py-1 hover:text-primary"
             onClick={() => setIsOpen(false)}
           >
             よくある質問
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="inline-block bg-primary text-white px-4 py-2 rounded-full text-sm hover:bg-primary-light transition-colors"
