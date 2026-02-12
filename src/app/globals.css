@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #8B6914;
+  --color-primary-light: #C4A35A;
+  --color-accent: #D4A574;
+  --color-warm-bg: #FDF8F0;
+  --color-warm-card: #FAF3E8;
+  --color-warm-border: #E8DCC8;
+  --color-text-main: #4A3728;
+  --color-text-sub: #7A6B5D;
+  --color-text-light: #9B8E80;
+  --font-sans: var(--font-noto-sans-jp);
+}
+
+body {
+  background: var(--color-warm-bg);
+  color: var(--color-text-main);
+  font-family: var(--font-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
