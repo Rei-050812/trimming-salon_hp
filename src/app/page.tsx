@@ -54,7 +54,7 @@ export default function Home() {
             sizes="100vw"
             className="object-cover object-center"
             priority
-            unoptimized
+
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30 md:from-white/85 md:via-white/60 md:to-transparent" />
         </div>
@@ -203,7 +203,7 @@ export default function Home() {
                     width={192}
                     height={192}
                     className="w-full h-full object-cover object-top"
-                    unoptimized
+        
                   />
                 </div>
                 <div>
