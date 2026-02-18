@@ -3,43 +3,9 @@ import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import FadeIn from "@/components/FadeIn";
 
-const IconPaw = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-    <ellipse cx="12" cy="16.5" rx="4.5" ry="3.2"/>
-    <circle cx="7" cy="11.5" r="1.8"/>
-    <circle cx="10.2" cy="9.2" r="1.8"/>
-    <circle cx="13.8" cy="9.2" r="1.8"/>
-    <circle cx="17" cy="11.5" r="1.8"/>
-  </svg>
-);
-
-const IconCalendar = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-    <rect x="3" y="4" width="18" height="18" rx="2"/>
-    <line x1="3" y1="9" x2="21" y2="9"/>
-    <line x1="8" y1="2" x2="8" y2="6"/>
-    <line x1="16" y1="2" x2="16" y2="6"/>
-    <path d="M8.5 14.5l2.5 2.5 4.5-5"/>
-  </svg>
-);
-
-const IconScissors = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-    <circle cx="6" cy="6" r="3"/>
-    <circle cx="6" cy="18" r="3"/>
-    <path d="M20 4L8.12 15.88"/>
-    <path d="M14.47 14.48L20 20"/>
-    <path d="M8.12 8.12L12 12"/>
-  </svg>
-);
-
-const IconChat = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-    <line x1="9" y1="11" x2="9" y2="11"/>
-    <line x1="12" y1="11" x2="12" y2="11"/>
-    <line x1="15" y1="11" x2="15" y2="11"/>
-  </svg>
+const FeatureIcon = ({ src, alt }: { src: string; alt: string }) => (
+  // eslint-disable-next-line @next/next/no-img-element
+  <img src={src} alt={alt} className="w-full h-full object-contain" />
 );
 
 const IconPhone = ({ className = "w-5 h-5" }: { className?: string }) => (
@@ -63,25 +29,25 @@ const IconLineChat = ({ className = "w-5 h-5" }: { className?: string }) => (
 
 const features: { icon: ReactNode; title: string; description: string }[] = [
   {
-    icon: <IconPaw />,
+    icon: <FeatureIcon src="/trimming-salon_hp/icons/icon-paw.png" alt="肉球アイコン" />,
     title: "一頭一頭、丁寧に",
     description:
       "わんちゃんの性格や体調に合わせて、ストレスの少ない施術を心がけています。",
   },
   {
-    icon: <IconCalendar />,
+    icon: <FeatureIcon src="/trimming-salon_hp/icons/icon-calendar.png" alt="カレンダーアイコン" />,
     title: "完全予約制",
     description:
       "お待たせしない・他の子と会わない環境で、落ち着いてトリミングを受けられます。",
   },
   {
-    icon: <IconScissors />,
+    icon: <FeatureIcon src="/trimming-salon_hp/icons/icon-scissors.png" alt="ハサミとコームアイコン" />,
     title: "安心の施術",
     description:
       "皮膚や被毛の状態をチェックしながら、やさしいシャンプーと丁寧なカットを行います。",
   },
   {
-    icon: <IconChat />,
+    icon: <FeatureIcon src="/trimming-salon_hp/icons/icon-chat.png" alt="チャットアイコン" />,
     title: "何でもご相談ください",
     description:
       "お手入れのコツやフードのことなど、日頃のケアについてもお気軽にどうぞ。",
@@ -205,7 +171,7 @@ export default function Home() {
             {features.map((f, i) => (
               <FadeIn key={i} delay={i * 100}>
                 <div className="bg-white rounded-2xl p-6 border border-warm-border shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-center h-full">
-                  <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                  <div className="w-20 h-20 mx-auto mb-4">
                     {f.icon}
                   </div>
                   <h3 className="font-bold mb-2 text-sm">{f.title}</h3>
