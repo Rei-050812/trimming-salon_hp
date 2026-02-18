@@ -1,28 +1,87 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import FadeIn from "@/components/FadeIn";
 
-const features = [
+const IconPaw = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <ellipse cx="12" cy="16.5" rx="4.5" ry="3.2"/>
+    <circle cx="7" cy="11.5" r="1.8"/>
+    <circle cx="10.2" cy="9.2" r="1.8"/>
+    <circle cx="13.8" cy="9.2" r="1.8"/>
+    <circle cx="17" cy="11.5" r="1.8"/>
+  </svg>
+);
+
+const IconCalendar = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <rect x="3" y="4" width="18" height="18" rx="2"/>
+    <line x1="3" y1="9" x2="21" y2="9"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <path d="M8.5 14.5l2.5 2.5 4.5-5"/>
+  </svg>
+);
+
+const IconScissors = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <circle cx="6" cy="6" r="3"/>
+    <circle cx="6" cy="18" r="3"/>
+    <path d="M20 4L8.12 15.88"/>
+    <path d="M14.47 14.48L20 20"/>
+    <path d="M8.12 8.12L12 12"/>
+  </svg>
+);
+
+const IconChat = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    <line x1="9" y1="11" x2="9" y2="11"/>
+    <line x1="12" y1="11" x2="12" y2="11"/>
+    <line x1="15" y1="11" x2="15" y2="11"/>
+  </svg>
+);
+
+const IconPhone = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </svg>
+);
+
+const IconMail = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="4" width="20" height="16" rx="2"/>
+    <polyline points="2,4 12,13 22,4"/>
+  </svg>
+);
+
+const IconLineChat = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+);
+
+const features: { icon: ReactNode; title: string; description: string }[] = [
   {
-    icon: "🤲",
+    icon: <IconPaw />,
     title: "一頭一頭、丁寧に",
     description:
       "わんちゃんの性格や体調に合わせて、ストレスの少ない施術を心がけています。",
   },
   {
-    icon: "📅",
+    icon: <IconCalendar />,
     title: "完全予約制",
     description:
       "お待たせしない・他の子と会わない環境で、落ち着いてトリミングを受けられます。",
   },
   {
-    icon: "✂️",
+    icon: <IconScissors />,
     title: "安心の施術",
     description:
       "皮膚や被毛の状態をチェックしながら、やさしいシャンプーと丁寧なカットを行います。",
   },
   {
-    icon: "💬",
+    icon: <IconChat />,
     title: "何でもご相談ください",
     description:
       "お手入れのコツやフードのことなど、日頃のケアについてもお気軽にどうぞ。",
@@ -39,6 +98,30 @@ const pricing = [
   { breed: "ゴールデンレトリバー", shampoo: "8,000円〜", cut: "12,000円〜" },
 ];
 
+function SectionLabel({
+  en,
+  ja,
+  sub,
+}: {
+  en: string;
+  ja: string;
+  sub?: string;
+}) {
+  return (
+    <div className="text-center mb-12 md:mb-16">
+      <div className="flex items-center justify-center gap-4 mb-4">
+        <span className="block w-10 h-px bg-warm-border" />
+        <p className="font-serif tracking-[0.3em] text-xs text-text-light uppercase">
+          {en}
+        </p>
+        <span className="block w-10 h-px bg-warm-border" />
+      </div>
+      <h2 className="font-mincho text-2xl md:text-3xl font-medium mb-3">{ja}</h2>
+      {sub && <p className="text-text-sub text-sm">{sub}</p>}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -52,41 +135,46 @@ export default function Home() {
             alt="トリミングサロンでブラッシングを受けるトイプードル"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/30 md:from-white/85 md:via-white/60 md:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-warm-bg/95 via-warm-bg/80 to-warm-bg/20 md:to-transparent" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 py-24 md:py-36">
+        <div className="relative max-w-6xl mx-auto px-4 py-28 md:py-40">
           <div className="max-w-xl">
             <FadeIn>
-              <p className="text-sm text-primary font-medium tracking-wider mb-4">
-                Trimming Salon
+              <p className="font-script text-3xl md:text-4xl text-primary mb-1 leading-relaxed">
+                Natural Dog Salon
               </p>
-              <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+              <p className="font-serif italic tracking-[0.2em] text-text-sub text-xs mb-8">
+                — Trimming Salon —
+              </p>
+              <h1 className="font-mincho text-3xl md:text-5xl font-semibold leading-tight mb-6">
                 大切な家族に、
                 <br />
                 やさしいトリミングを。
               </h1>
             </FadeIn>
             <FadeIn delay={200}>
-              <p className="text-text-sub max-w-lg mb-10 leading-relaxed">
+              <p className="text-text-sub max-w-lg mb-10 leading-relaxed text-sm md:text-base">
                 一頭一頭に寄り添った完全予約制のプライベートサロン。
                 <br className="hidden md:block" />
                 わんちゃんもオーナー様も安心できる空間をご用意しています。
               </p>
             </FadeIn>
             <FadeIn delay={400}>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="tel:000-0000-0000"
-                  className="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary-light transition-colors shadow-md"
+                  className="bg-primary text-white px-8 py-3.5 rounded-xl font-medium hover:bg-primary-light transition-colors shadow-md flex items-center justify-center gap-2 text-sm"
                 >
-                  📞 電話で予約する
+                  <IconPhone className="w-4 h-4" />
+                  電話で予約する
                 </a>
                 <Link
                   href="/contact"
-                  className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-full font-medium hover:bg-warm-card transition-colors"
+                  className="border border-primary text-primary px-8 py-3.5 rounded-xl font-medium hover:bg-primary/5 transition-colors flex items-center justify-center gap-2 text-sm"
                 >
-                  ✉️ お問い合わせ
+                  <IconMail className="w-4 h-4" />
+                  お問い合わせ
                 </Link>
               </div>
             </FadeIn>
@@ -104,23 +192,24 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-16 md:py-24">
+      <section id="features" className="py-16 md:py-24 texture-light">
         <div className="max-w-6xl mx-auto px-4">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-              サロンの特徴
-            </h2>
-            <p className="text-text-sub text-center mb-12 text-sm">
-              わんちゃんファーストの4つのこだわり
-            </p>
+            <SectionLabel
+              en="Features"
+              ja="サロンの特徴"
+              sub="わんちゃんファーストの4つのこだわり"
+            />
           </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {features.map((f, i) => (
               <FadeIn key={i} delay={i * 100}>
-                <div className="bg-white rounded-2xl p-6 border border-warm-border shadow-sm hover:shadow-md transition-shadow text-center h-full">
-                  <div className="text-4xl mb-4">{f.icon}</div>
-                  <h3 className="font-bold mb-2">{f.title}</h3>
-                  <p className="text-sm text-text-sub leading-relaxed">
+                <div className="bg-white rounded-2xl p-6 border border-warm-border shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-center h-full">
+                  <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                    {f.icon}
+                  </div>
+                  <h3 className="font-bold mb-2 text-sm">{f.title}</h3>
+                  <p className="text-xs text-text-sub leading-relaxed">
                     {f.description}
                   </p>
                 </div>
@@ -131,15 +220,14 @@ export default function Home() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-16 md:py-24 bg-warm-card">
+      <section id="pricing" className="py-16 md:py-24 bg-warm-card texture-light">
         <div className="max-w-4xl mx-auto px-4">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-              料金表
-            </h2>
-            <p className="text-text-sub text-center mb-10 text-sm">
-              犬種別の目安料金です。毛量・体格により変動する場合がございます。
-            </p>
+            <SectionLabel
+              en="Price List"
+              ja="料金表"
+              sub="犬種別の目安料金です。毛量・体格により変動する場合がございます。"
+            />
           </FadeIn>
           <FadeIn delay={150}>
             <div className="bg-white rounded-2xl border border-warm-border overflow-hidden shadow-sm">
@@ -147,11 +235,11 @@ export default function Home() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-primary text-white">
-                      <th className="text-left px-5 py-3 font-medium">犬種</th>
-                      <th className="text-left px-5 py-3 font-medium">
+                      <th className="text-left px-5 py-3.5 font-medium">犬種</th>
+                      <th className="text-left px-5 py-3.5 font-medium">
                         シャンプーコース
                       </th>
-                      <th className="text-left px-5 py-3 font-medium">
+                      <th className="text-left px-5 py-3.5 font-medium">
                         カットコース
                       </th>
                     </tr>
@@ -160,7 +248,9 @@ export default function Home() {
                     {pricing.map((p, i) => (
                       <tr
                         key={i}
-                        className="border-t border-warm-border hover:bg-warm-bg transition-colors"
+                        className={`border-t border-warm-border hover:bg-warm-bg transition-colors ${
+                          i % 2 !== 0 ? "bg-warm-bg/50" : ""
+                        }`}
                       >
                         <td className="px-5 py-3 font-medium">{p.breed}</td>
                         <td className="px-5 py-3 text-text-sub">{p.shampoo}</td>
@@ -179,20 +269,19 @@ export default function Home() {
       </section>
 
       {/* Trimmer */}
-      <section id="trimmer" className="py-16 md:py-24">
+      <section id="trimmer" className="py-16 md:py-24 texture-light">
         <div className="max-w-4xl mx-auto px-4">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-              トリマー紹介
-            </h2>
-            <p className="text-text-sub text-center mb-12 text-sm">
-              経験豊富なトリマーが丁寧に対応します
-            </p>
+            <SectionLabel
+              en="Our Trimmer"
+              ja="トリマー紹介"
+              sub="経験豊富なトリマーが丁寧に対応します"
+            />
           </FadeIn>
           <FadeIn delay={150}>
             <div className="bg-white rounded-2xl border border-warm-border p-6 md:p-10 shadow-sm">
               <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shrink-0">
+                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shrink-0 ring-4 ring-warm-border">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/trimming-salon_hp/trimmer.png"
@@ -203,17 +292,17 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <p className="text-xs text-primary font-medium mb-1">
-                    オーナートリマー
+                  <p className="font-serif italic tracking-[0.2em] text-primary text-xs uppercase mb-1">
+                    Owner Trimmer
                   </p>
-                  <h3 className="text-xl font-bold mb-3">田邉 凜々花</h3>
-                  <div className="text-sm text-text-sub leading-relaxed space-y-2">
+                  <h3 className="font-mincho text-xl font-medium mb-4">田邉 凜々花</h3>
+                  <div className="text-sm text-text-sub leading-relaxed space-y-3">
                     <p>
                       JKC公認トリマーA級ライセンス取得。ペットサロン勤務10年を経て、
                       2020年に「Paw Salon
                       ぱう」をオープン。小型犬から大型犬まで幅広く対応しています。
                     </p>
-                    <p className="text-primary font-medium italic">
+                    <p className="text-primary font-medium italic border-l-2 border-primary/30 pl-3 py-0.5">
                       「わんちゃんが&quot;また来たい&quot;と思ってくれるサロンでありたいです。
                       お気軽にご相談ください！」
                     </p>
@@ -226,15 +315,14 @@ export default function Home() {
       </section>
 
       {/* Shop Info */}
-      <section id="shop" className="py-16 md:py-24 bg-warm-card">
+      <section id="shop" className="py-16 md:py-24 bg-warm-card texture-light">
         <div className="max-w-4xl mx-auto px-4">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-              店舗情報
-            </h2>
-            <p className="text-text-sub text-center mb-12 text-sm">
-              お気軽にお越しください
-            </p>
+            <SectionLabel
+              en="Shop Info"
+              ja="店舗情報"
+              sub="お気軽にお越しください"
+            />
           </FadeIn>
           <FadeIn delay={150}>
             <div className="bg-white rounded-2xl border border-warm-border overflow-hidden shadow-sm">
@@ -246,35 +334,45 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6 md:p-8 space-y-4 text-sm">
-                  <div>
-                    <p className="text-xs text-text-light mb-1">店舗名</p>
+                  <div className="pb-4 border-b border-warm-border/60">
+                    <p className="font-serif tracking-widest text-xs text-text-light uppercase mb-1.5">
+                      店舗名
+                    </p>
                     <p className="font-medium">Paw Salon ぱう</p>
                   </div>
-                  <div>
-                    <p className="text-xs text-text-light mb-1">住所</p>
+                  <div className="pb-4 border-b border-warm-border/60">
+                    <p className="font-serif tracking-widest text-xs text-text-light uppercase mb-1.5">
+                      住所
+                    </p>
                     <p>〒000-0000 東京都渋谷区○○ 1-2-3 ぱうビル 1F</p>
                   </div>
-                  <div>
-                    <p className="text-xs text-text-light mb-1">電話番号</p>
-                    <p>
-                      <a
-                        href="tel:000-0000-0000"
-                        className="text-primary hover:underline"
-                      >
-                        000-0000-0000
-                      </a>
+                  <div className="pb-4 border-b border-warm-border/60">
+                    <p className="font-serif tracking-widest text-xs text-text-light uppercase mb-1.5">
+                      電話番号
                     </p>
+                    <a
+                      href="tel:000-0000-0000"
+                      className="text-primary hover:underline font-medium"
+                    >
+                      000-0000-0000
+                    </a>
                   </div>
-                  <div>
-                    <p className="text-xs text-text-light mb-1">営業時間</p>
+                  <div className="pb-4 border-b border-warm-border/60">
+                    <p className="font-serif tracking-widest text-xs text-text-light uppercase mb-1.5">
+                      営業時間
+                    </p>
                     <p>10:00〜18:00（最終受付 16:00）</p>
                   </div>
-                  <div>
-                    <p className="text-xs text-text-light mb-1">定休日</p>
+                  <div className="pb-4 border-b border-warm-border/60">
+                    <p className="font-serif tracking-widest text-xs text-text-light uppercase mb-1.5">
+                      定休日
+                    </p>
                     <p>毎週水曜日・第3火曜日</p>
                   </div>
                   <div>
-                    <p className="text-xs text-text-light mb-1">アクセス</p>
+                    <p className="font-serif tracking-widest text-xs text-text-light uppercase mb-1.5">
+                      アクセス
+                    </p>
                     <p>○○駅 徒歩5分 / 駐車場2台あり</p>
                   </div>
                 </div>
@@ -285,15 +383,14 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 md:py-24">
+      <section id="faq" className="py-16 md:py-24 texture-light">
         <div className="max-w-3xl mx-auto px-4">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-              よくある質問
-            </h2>
-            <p className="text-text-sub text-center mb-12 text-sm">
-              お客様からよくいただくご質問をまとめました
-            </p>
+            <SectionLabel
+              en="FAQ"
+              ja="よくある質問"
+              sub="お客様からよくいただくご質問をまとめました"
+            />
           </FadeIn>
           <FadeIn delay={150}>
             <FAQ />
@@ -302,10 +399,20 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-warm-card to-accent/10">
+      <section className="py-16 md:py-24 bg-warm-card texture-light">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            <p className="font-script text-3xl text-primary mb-2">
+              Get in Touch
+            </p>
+            <div className="flex items-center justify-center gap-4 mb-5">
+              <span className="block w-10 h-px bg-warm-border" />
+              <p className="font-serif tracking-[0.3em] text-xs text-text-light uppercase">
+                Contact
+              </p>
+              <span className="block w-10 h-px bg-warm-border" />
+            </div>
+            <h2 className="font-mincho text-2xl md:text-3xl font-medium mb-4">
               ご予約・お問い合わせ
             </h2>
             <p className="text-text-sub mb-10 text-sm leading-relaxed">
@@ -318,28 +425,28 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
                 href="tel:000-0000-0000"
-                className="bg-primary text-white px-8 py-4 rounded-2xl font-medium hover:bg-primary-light transition-colors shadow-md flex items-center justify-center gap-2"
+                className="bg-primary text-white px-8 py-4 rounded-xl font-medium hover:bg-primary-light transition-colors shadow-md flex items-center justify-center gap-3"
               >
-                📞
+                <IconPhone className="w-5 h-5 shrink-0" />
                 <span>
                   <span className="block text-xs opacity-80">お電話でのご予約</span>
-                  <span className="block text-lg">000-0000-0000</span>
+                  <span className="block text-base font-bold">000-0000-0000</span>
                 </span>
               </a>
               <a
                 href="#"
-                className="bg-[#06C755] text-white px-8 py-4 rounded-2xl font-medium hover:opacity-90 transition-opacity shadow-md flex items-center justify-center gap-2"
+                className="bg-[#06C755] text-white px-8 py-4 rounded-xl font-medium hover:opacity-90 transition-opacity shadow-md flex items-center justify-center gap-3"
               >
-                💬
+                <IconLineChat className="w-5 h-5 shrink-0" />
                 <span>
                   <span className="block text-xs opacity-80">LINEでのご予約</span>
-                  <span className="block text-lg">LINE で友だち追加</span>
+                  <span className="block text-base font-bold">LINE で友だち追加</span>
                 </span>
               </a>
             </div>
             <Link
               href="/contact"
-              className="inline-block text-primary font-medium border-b-2 border-primary pb-1 hover:text-primary-light hover:border-primary-light transition-colors"
+              className="inline-flex items-center gap-2 text-primary font-medium border-b border-primary/40 pb-0.5 hover:border-primary transition-colors text-sm"
             >
               お問い合わせフォームはこちら →
             </Link>

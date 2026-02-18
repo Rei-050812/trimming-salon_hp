@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+import {
+  Noto_Sans_JP,
+  Dancing_Script,
+  Cormorant_Garamond,
+  Shippori_Mincho,
+} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,6 +13,29 @@ const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+  display: "swap",
+});
+
+const dancingScript = Dancing_Script({
+  variable: "--font-dancing-script",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const shipporiMincho = Shippori_Mincho({
+  variable: "--font-mincho",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,16 +52,12 @@ export const metadata: Metadata = {
     siteName: "Paw Salon ぱう",
     locale: "ja_JP",
     type: "website",
-    // OGP画像を追加する場合は以下のコメントを外してください
-    // images: [{ url: "/ogp.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Paw Salon ぱう | 大切な家族にやさしいトリミング",
     description:
       "完全予約制のトリミングサロン。一頭一頭に寄り添った丁寧な施術で、大切な家族をやさしくケアします。",
-    // OGP画像を追加する場合は以下のコメントを外してください
-    // images: ["/ogp.png"],
   },
 };
 
@@ -44,7 +68,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${notoSansJP.variable} antialiased`}>
+      <body
+        className={`${notoSansJP.variable} ${dancingScript.variable} ${cormorant.variable} ${shipporiMincho.variable} antialiased`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />

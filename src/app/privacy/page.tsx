@@ -1,9 +1,16 @@
 export default function PrivacyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-16">
-      <h1 className="text-2xl md:text-3xl font-bold text-center mb-12">
-        プライバシーポリシー
-      </h1>
+      <div className="text-center mb-12">
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <span className="block w-10 h-px bg-warm-border" />
+          <p className="font-serif tracking-[0.3em] text-xs text-text-light uppercase">
+            Privacy Policy
+          </p>
+          <span className="block w-10 h-px bg-warm-border" />
+        </div>
+        <h1 className="font-mincho text-2xl md:text-3xl font-medium">プライバシーポリシー</h1>
+      </div>
 
       <div className="bg-white rounded-2xl border border-warm-border p-6 md:p-10 shadow-sm space-y-8 text-sm text-text-sub leading-relaxed">
         <section>

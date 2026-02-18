@@ -37,14 +37,21 @@ export default function ContactPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-16">
-      <h1 className="text-2xl md:text-3xl font-bold text-center mb-4">
-        お問い合わせ
-      </h1>
-      <p className="text-text-sub text-center mb-10 text-sm leading-relaxed">
-        ご予約やご質問など、お気軽にお問い合わせください。
-        <br />
-        2営業日以内にご返信いたします。
-      </p>
+      <div className="text-center mb-10">
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <span className="block w-10 h-px bg-warm-border" />
+          <p className="font-serif tracking-[0.3em] text-xs text-text-light uppercase">
+            Contact
+          </p>
+          <span className="block w-10 h-px bg-warm-border" />
+        </div>
+        <h1 className="font-mincho text-2xl md:text-3xl font-medium mb-3">お問い合わせ</h1>
+        <p className="text-text-sub text-sm leading-relaxed">
+          ご予約やご質問など、お気軽にお問い合わせください。
+          <br />
+          2営業日以内にご返信いたします。
+        </p>
+      </div>
 
       <form
         onSubmit={handleSubmit}

@@ -1,24 +1,47 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #8B6914;
-  --color-primary-light: #C4A35A;
-  --color-accent: #D4A574;
-  --color-warm-bg: #FDF8F0;
-  --color-warm-card: #FAF3E8;
-  --color-warm-border: #E8DCC8;
-  --color-text-main: #4A3728;
-  --color-text-sub: #7A6B5D;
-  --color-text-light: #9B8E80;
-  --font-sans: var(--font-noto-sans-jp);
+  --color-primary: #2A5240;
+  --color-primary-light: #3D7A5A;
+  --color-primary-dark: #1C3A2C;
+  --color-accent: #7B4F3A;
+  --color-accent-light: #B07B5C;
+  --color-warm-bg: #F7F3EC;
+  --color-warm-card: #EDE9E0;
+  --color-warm-border: #D8CFBF;
+  --color-text-main: #2C2018;
+  --color-text-sub: #6A5A4E;
+  --color-text-light: #9A8A7E;
+  --font-sans: var(--font-noto-sans-jp), "Hiragino Sans", sans-serif;
+  --font-script: var(--font-dancing-script), cursive;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-mincho: var(--font-mincho), "Hiragino Mincho ProN", "游明朝", serif;
 }
 
 body {
   background: var(--color-warm-bg);
   color: var(--color-text-main);
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-sans);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ─── Texture ─────────────────────────────────── */
+
+/* Light sections (ivory / warm-card backgrounds) */
+.texture-light {
+  background-image: url("/trimming-salon_hp/texture.svg");
+  background-size: 180px 180px;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+/* Dark sections (primary / primary-dark backgrounds) */
+.texture-dark {
+  background-image: url("/trimming-salon_hp/texture.svg");
+  background-size: 180px 180px;
+  background-repeat: repeat;
+  background-blend-mode: screen;
 }

@@ -33,19 +33,21 @@ export default function FAQ() {
       {faqs.map((faq, i) => (
         <div
           key={i}
-          className="bg-white rounded-2xl border border-warm-border overflow-hidden"
+          className="bg-white rounded-2xl border border-warm-border overflow-hidden shadow-sm"
         >
           <button
             className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-medium text-text-main hover:bg-warm-card transition-colors"
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
             aria-expanded={openIndex === i}
           >
-            <span className="flex items-start gap-2">
-              <span className="text-primary font-bold shrink-0">Q.</span>
-              {faq.q}
+            <span className="flex items-start gap-3">
+              <span className="font-serif italic text-primary font-semibold shrink-0 text-base leading-snug">
+                Q.
+              </span>
+              <span className="text-sm leading-relaxed">{faq.q}</span>
             </span>
             <svg
-              className={`w-5 h-5 shrink-0 text-text-light transition-transform ${
+              className={`w-4 h-4 shrink-0 text-text-light transition-transform duration-200 ${
                 openIndex === i ? "rotate-180" : ""
               }`}
               fill="none"
@@ -61,10 +63,12 @@ export default function FAQ() {
             </svg>
           </button>
           {openIndex === i && (
-            <div className="px-5 pb-4 text-sm text-text-sub leading-relaxed">
-              <div className="flex items-start gap-2 pt-2 border-t border-warm-border">
-                <span className="text-accent font-bold shrink-0">A.</span>
-                <p>{faq.a}</p>
+            <div className="px-5 pb-4">
+              <div className="flex items-start gap-3 pt-3 border-t border-warm-border/60">
+                <span className="font-serif italic text-accent font-semibold shrink-0 text-base leading-snug">
+                  A.
+                </span>
+                <p className="text-sm text-text-sub leading-relaxed">{faq.a}</p>
               </div>
             </div>
           )}
