@@ -171,7 +171,7 @@ export default function Home() {
             {features.map((f, i) => (
               <FadeIn key={i} delay={i * 100}>
                 <div className="bg-white rounded-2xl p-6 border border-warm-border shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-center h-full">
-                  <div className="w-20 h-20 mx-auto mb-4">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full border-2 border-warm-border overflow-hidden shadow-sm">
                     {f.icon}
                   </div>
                   <h3 className="font-bold mb-2 text-sm">{f.title}</h3>
